@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Cours;
+use App\Http\Requests\Enscours;
 class MyController extends Controller
 {
  
@@ -27,7 +28,8 @@ public function espace_etd(){
 public function ajouter_crs(){
     return view('Ens.AjouterCours');
 }
-public function store(Request $request){
+public function store(Enscours $request){
+    $validated = $request->validated();
 
         $Cours=$request->file('Cours') ;
         $cours_name=$Cours-> getClientOriginalName();

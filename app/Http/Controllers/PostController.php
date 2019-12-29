@@ -18,7 +18,6 @@ class PostController extends Controller
      */
     public function index()
     {
-        Session::flash('success','Hey!!');
         $Etudiants=Etudiant::all();
         return view('admin.etudiant.affichage')->with('etudiant',$Etudiants);
     }
@@ -47,18 +46,7 @@ class PostController extends Controller
  *
  * @return array
  */
-    public function messages()
-    {
-        return [
-            'Nom.required' => 'A name is required',
-            'Prenom.required'  => 'A firstname is required',
-            'NomUtilisateur.required'  => 'A username is required',
-            'MotDePasse.required'  => 'A password is required',
-            'ConfirmMotDePasse.required'  => 'A cofirmation password is required',
-            'NiveauEtude.required'  => 'A grade study is required'
-
-        ];
-    }
+ 
     public function store(UserStoreRequest $request)
     {
 
@@ -72,7 +60,6 @@ class PostController extends Controller
         $Etudiant->ConfirmMotDePasse=$request->ConfirmMotDePasse;
         $Etudiant->NiveauEtude=$request->NiveauEtude;
         $Etudiant->save();
-        Session::flash('success',' you successfully create a new student');
         return redirect()->back();
 
     }
@@ -117,7 +104,6 @@ class PostController extends Controller
         $Etudiant->ConfirmMotDePasse=$request->ConfirmMotDePasse;
         $Etudiant->NiveauEtude=$request->NiveauEtude;
         $Etudiant->save();
-        Session::flash('success',' you successfully update that student');
         return redirect()->back();
         
     }

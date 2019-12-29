@@ -65,15 +65,6 @@
         </main>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="js/toastr.mini.js" >   </script>
-    <script>
-      @if(Session::has('success'))
-
-        toastr.success(" {{ Session::get('success')}} ")
         
-
-        @endif
-    
-    </script>
 </body>
 </html>
